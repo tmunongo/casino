@@ -6,6 +6,7 @@
 	let mode: 'idle' | 'creating' | 'joining' | 'join-input' = 'idle';
 	let joinId = '';
 	let error = '';
+	let selectedGame = 'crazy-eights';
 
 	function generateId(): string {
 		// nanoid-like 8-char alphanum ID
@@ -76,6 +77,14 @@
 						on:input={clearError}
 						on:keydown={(e) => e.key === 'Enter' && createGame()}
 					/>
+				</div>
+
+				<!-- Game selection -->
+				<div class="field">
+					<label for="game-select">Choose Game</label>
+					<select id="game-select" bind:value={selectedGame}>
+						<option value="crazy-eights">Crazy Eights</option>
+					</select>
 				</div>
 
 				{#if error}
@@ -247,6 +256,31 @@
 	}
 	input::placeholder {
 		color: var(--text-muted);
+	}
+
+	select {
+		background: rgba(255, 255, 255, 0.05);
+		border: 1px solid rgba(201, 168, 76, 0.3);
+		border-radius: 8px;
+		padding: 0.75rem 1rem;
+		color: var(--text-primary);
+		font-family: var(--font-body);
+		font-size: 1.05rem;
+		outline: none;
+		transition: border-color 0.15s;
+		appearance: none;
+		background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23c9a84c' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+		background-repeat: no-repeat;
+		background-position: right 1rem center;
+		background-size: 1em;
+	}
+	select:focus {
+		border-color: var(--gold);
+		box-shadow: 0 0 0 2px var(--gold-glow);
+	}
+	select option {
+		background: var(--bg-deep);
+		color: var(--text-primary);
 	}
 
 	.error {
