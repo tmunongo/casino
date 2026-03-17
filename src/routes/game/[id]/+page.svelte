@@ -109,8 +109,8 @@
 	$: canPassNow =
 		$isMyTurn &&
 		$gameState &&
-		deckCount === 0 &&
-		!canPlay($gameState, $myPlayerId);
+		(!canPlay($gameState, $myPlayerId)) &&
+		(deckCount === 0 || $gameState.lastDrawnCardId);
 
 	// ── Actions ────────────────────────────────────────────────────────────────
 

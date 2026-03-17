@@ -182,9 +182,11 @@ export function applyMove(state: GameState, move: Move, playerId: string): MoveR
 
 	// ── Pass ──
 	if (move.type === 'pass') {
-		// Can only pass if deck is empty and no legal plays
+		// Can only pass if deck is empty and no legal plays, OR if they already drew a card this turn.
 		const working = reshuffleIfNeeded(state);
-		if (working.deck.length > 0) return { ok: false, error: 'Must draw before passing' };
+		const hasDrawn = state.lastDrawnCardId !== null;
+		
+		if (working.deck.length > 0 && !hasDrawn) return { ok: false, error: 'Must draw before passing' };
 		if (canPlay(state, playerId)) return { ok: false, error: 'Must play if able' };
 
 		return {
