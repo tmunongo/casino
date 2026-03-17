@@ -136,6 +136,8 @@ export function applyMove(state: GameState, move: Move, playerId: string): MoveR
 		const newDeclaredSuit = card.rank === '8' ? (move.declaredSuit ?? null) : null;
 		const isWinner = newHand.length === 0;
 
+		const playAgain = ['K', 'J', '7'].includes(card.rank);
+
 		return {
 			ok: true,
 			state: {
@@ -147,7 +149,7 @@ export function applyMove(state: GameState, move: Move, playerId: string): MoveR
 					...state.players,
 					[playerId]: { ...player, hand: newHand }
 				},
-				currentPlayer: isWinner ? playerId : nextPlayer(state),
+				currentPlayer: isWinner || playAgain ? playerId : nextPlayer(state),
 				phase: isWinner ? 'over' : 'playing',
 				winner: isWinner ? playerId : null,
 				turnCount: state.turnCount + 1

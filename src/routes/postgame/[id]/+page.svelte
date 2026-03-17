@@ -45,7 +45,7 @@
 </script>
 
 <svelte:head>
-	<title>Result · Crazy Eights</title>
+	<title>Result · Casino</title>
 </svelte:head>
 
 <main>

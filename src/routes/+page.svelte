@@ -39,7 +39,7 @@
 </script>
 
 <svelte:head>
-	<title>Crazy Eights</title>
+	<title>Casino</title>
 </svelte:head>
 
 <main>
@@ -52,7 +52,7 @@
 		<!-- Title -->
 		<header>
 			<div class="suit-row" aria-hidden="true">♠ ♥ ♦ ♣</div>
-			<h1>Crazy Eights</h1>
+			<h1>Casino</h1>
 			<p class="tagline">A two-player card game. No server. Pure peer-to-peer.</p>
 		</header>
 

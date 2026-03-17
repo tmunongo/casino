@@ -1,6 +1,6 @@
-# Crazy Eights — Serverless P2P Card Game
+# Casino — Serverless P2P Card Game
 
-A two-player Crazy Eights card game built with **SvelteKit** and **PeerJS** (WebRTC).  
+A two-player Casino card game built with **SvelteKit** and **PeerJS** (WebRTC).  
 No backend, no database — game state lives in the browser and syncs peer-to-peer.
 
 ---
@@ -9,7 +9,7 @@ No backend, no database — game state lives in the browser and syncs peer-to-pe
 
 - **Peer-to-peer multiplayer** via WebRTC data channels (PeerJS)
 - **Host-authoritative** game state — the host validates every move, prevents cheating
-- **Full Crazy Eights rules** — suit/rank matching, wild 8s with suit declaration, draw-until-playable
+- **Full Casino rules** — suit/rank matching, wild 8s with suit declaration, draw-until-playable
 - **Shareable invite link** — one click to copy, opponent opens the URL and joins
 - **Post-game summary** — winner, hand scores, play again option
 - **Casino felt aesthetic** — Cinzel + Crimson Pro fonts, gold accents, animated card interactions

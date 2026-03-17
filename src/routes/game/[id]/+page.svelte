@@ -21,7 +21,7 @@
 	import { getLegalPlays, canPlay, scoreHand, type GameState } from '$lib/game/rules';
 	import { SUIT_SYMBOLS, SUIT_NAMES, type Suit } from '$lib/game/cards';
 
-	const gameId = $page.params.id;
+	const gameId = $page.params.id as string;
 
 	let showSuitPicker = false;
 	let pendingCardId: string | null = null;
@@ -161,7 +161,7 @@
 </script>
 
 <svelte:head>
-	<title>Game · Crazy Eights</title>
+	<title>Game · Casino</title>
 </svelte:head>
 
 <!-- ── Name prompt (for direct link openers) ──────────────────────────────── -->
@@ -196,7 +196,7 @@
 	<!-- Top HUD -->
 	<header class="hud">
 		<div class="hud-left">
-			<span class="logo">Crazy Eights</span>
+			<span class="logo">Casino</span>
 		</div>
 		<div class="hud-center">
 			{#if $connectionStatus === 'waiting'}
