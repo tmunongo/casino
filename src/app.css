@@ -1,0 +1,66 @@
+:root {
+	--bg-deep: #08111e;
+	--bg-surface: #0e1a2d;
+	--bg-felt: #0d2818;
+	--felt-alt: #0f2e1c;
+	--gold: #c9a84c;
+	--gold-light: #e8c96e;
+	--gold-dim: #7a6030;
+	--gold-glow: rgba(201, 168, 76, 0.25);
+	--text-primary: #f0e6d3;
+	--text-secondary: #9a8870;
+	--text-muted: #5a4e40;
+	--card-bg: #fefef8;
+	--card-red: #c0392b;
+	--card-black: #1a1a2e;
+	--border-gold: 1px solid rgba(201, 168, 76, 0.3);
+	--radius: 10px;
+	--radius-card: 7px;
+	--font-display: 'Cinzel', serif;
+	--font-body: 'Crimson Pro', serif;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	background: var(--bg-deep);
+	color: var(--text-primary);
+	font-family: var(--font-body);
+	font-size: 16px;
+	line-height: 1.5;
+	overflow: hidden;
+}
+
+button {
+	font-family: var(--font-body);
+	cursor: pointer;
+}
+
+a {
+	color: var(--gold);
+}
+
+::selection {
+	background: var(--gold-dim);
+	color: var(--text-primary);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+	width: 6px;
+}
+::-webkit-scrollbar-track {
+	background: var(--bg-deep);
+}
+::-webkit-scrollbar-thumb {
+	background: var(--gold-dim);
+	border-radius: 3px;
+}
