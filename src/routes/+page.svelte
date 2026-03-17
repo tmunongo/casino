@@ -18,22 +18,24 @@
 		if (!nickname.trim()) { error = 'Enter your name first'; return; }
 		mode = 'creating';
 		const id = generateId();
+		const route = selectedGame === 'go-fish' ? `/gofish/${id}` : `/game/${id}`;
 		if (browser) {
 			localStorage.setItem(`game:${id}:role`, 'host');
 			localStorage.setItem(`game:${id}:name`, nickname.trim());
 		}
-		await goto(`/game/${id}`);
+		await goto(route);
 	}
 
 	async function joinGame() {
 		if (!nickname.trim()) { error = 'Enter your name first'; return; }
 		const id = joinId.trim().toLowerCase();
 		if (!id) { error = 'Enter a game code'; return; }
+		const route = selectedGame === 'go-fish' ? `/gofish/${id}` : `/game/${id}`;
 		if (browser) {
 			localStorage.setItem(`game:${id}:role`, 'joiner');
 			localStorage.setItem(`game:${id}:name`, nickname.trim());
 		}
-		await goto(`/game/${id}`);
+		await goto(route);
 	}
 
 	function clearError() { error = ''; }
@@ -84,6 +86,7 @@
 					<label for="game-select">Choose Game</label>
 					<select id="game-select" bind:value={selectedGame}>
 						<option value="crazy-eights">Crazy Eights</option>
+					<option value="go-fish">Go Fish</option>
 					</select>
 				</div>
 

@@ -1,12 +1,18 @@
 import type { GameState, Move } from '$lib/game/rules';
+import type { GofishState, GofishMove } from '$lib/game/gofish';
 
 // ─── Message types ────────────────────────────────────────────────────────────
 
 export type NetworkMessage =
 	| { type: 'PLAYER_JOIN'; name: string; playerId: string }
+	// Crazy Eights
 	| { type: 'GAME_START'; state: GameState }
 	| { type: 'MOVE'; move: Move; playerId: string }
-	| { type: 'STATE_UPDATE'; state: GameState };
+	| { type: 'STATE_UPDATE'; state: GameState }
+	// Go Fish
+	| { type: 'GF_GAME_START'; state: GofishState }
+	| { type: 'GF_MOVE'; move: GofishMove; playerId: string }
+	| { type: 'GF_STATE_UPDATE'; state: GofishState };
 
 export interface PeerCallbacks {
 	onPeerOpen?: (peerId: string) => void;
